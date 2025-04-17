@@ -13,22 +13,14 @@ public class TestDroppable {
         drop.arrastrarYsoltar();
         drop.captura("Test_Droppable_Simple");
 
-//        drop.tabAccept();
-//        drop.arrastrarYSoltarEnAccept();
-//        drop.captura("Test_Droppable_Accept");
-
         drop.tabPreventPropagation();
         drop.arrastrarYsoltarInnerNotGreedy();
         drop.captura("Test_Droppable_Prevent_Propogation_InnerNotGreedy");
 
-//        drop.arrastrarYsoltarInnerGreedy();
-//        drop.captura("Test_Droppable_Prevent_Propogation_InnerGreedy");
 
         drop.arrastrarYsoltarInnerGreedy();
         drop.captura("Test_Droppable_Prevent_Propogation_InnerGreedy");
 
-//        drop.arrastrarYsoltarOuterGreedy();
-//        drop.captura("Test_Droppable_Prevent_Propogation_OuterGreedy");
         drop.tabRevertDraggable();
         drop.dragWillRevert();
         drop.captura("Test_Droppable_Revert_Draggable_Will_Revert");

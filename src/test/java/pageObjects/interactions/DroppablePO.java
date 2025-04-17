@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Constantes;
 
 import java.time.Duration;
 
@@ -28,16 +29,10 @@ public class DroppablePO extends DemoQASetup {
     protected WebElement dragBox;
     @FindBy(id = "droppable")
     protected WebElement drop;
-    @FindBy(id = "droppableExample-tab-accept")
-    protected WebElement acceptTab;
     @FindBy(id = "droppableExample-tab-preventPropogation")
     protected WebElement preventPropogationTab;
     @FindBy(id = "droppableExample-tab-revertable")
     protected WebElement revertDraggableTab;
-    @FindBy(id = "notAcceptable")
-    protected WebElement noAceptable;
-    @FindBy(id = "acceptable")
-    protected WebElement aceptable;
     @FindBy(id = "greedyDropBox")
     protected WebElement greedyBox;
     @FindBy(id = "greedyDropBoxInner")
@@ -57,28 +52,11 @@ public class DroppablePO extends DemoQASetup {
 
         wait.until(ExpectedConditions.textToBe(By.id("droppable"), "Dropped!"));
     }
-    public void tabAccept(){
-        acceptTab.click();
-    }
     public void tabPreventPropagation(){
         preventPropogationTab.click();
     }
     public void tabRevertDraggable(){
         revertDraggableTab.click();
-    }
-    public void arrastrarYSoltarEnAccept(){
-        accion = new Actions(driver);
-
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.elementToBeClickable(noAceptable));
-        accion.dragAndDrop(noAceptable, drop).release().perform();
-
-        if(drop.getText().equalsIgnoreCase("Drop here")){
-            System.out.println("La tarjeta 'Not Acceptable' se ha soltado correctamente y no ha modificado el drop");
-        }
-
-        accion.dragAndDrop(aceptable, drop).release().perform();
-        wait.until(ExpectedConditions.textToBe(By.id("droppable"), "Dropped!"));
     }
     public void arrastrarYsoltarInnerNotGreedy(){
         accion = new Actions(driver);
@@ -87,7 +65,7 @@ public class DroppablePO extends DemoQASetup {
         wait.until(ExpectedConditions.elementToBeClickable(dragBox));
 
         accion.dragAndDrop(dragBox, notGreedyInnerBox).release().perform();
-        wait.until(ExpectedConditions.textToBe(By.id("notGreedyInnerDropBox"), "Dropped!"));
+        wait.until(ExpectedConditions.textToBe(By.id("notGreedyInnerDropBox"), Constantes.DROPEADO));
     }
     public void arrastrarYsoltarInnerGreedy(){
         accion = new Actions(driver);
@@ -97,16 +75,7 @@ public class DroppablePO extends DemoQASetup {
 
         accion.scrollToElement(greedyInnerBox).perform();
         accion.dragAndDrop(dragBox, greedyBox).release().perform();
-        wait.until(ExpectedConditions.textToBe(By.id("greedyDropBoxInner"), "Dropped!"));
-    }
-    public void arrastrarYsoltarOuterGreedy(){
-        accion = new Actions(driver);
-
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.elementToBeClickable(dragBox));
-
-        accion.dragAndDrop(dragBox, greedyBox).release().perform();
-        wait.until(ExpectedConditions.textToBe(By.id("greedyDropBox"), "Dropped!"));
+        wait.until(ExpectedConditions.textToBe(By.id("greedyDropBoxInner"), Constantes.DROPEADO));
     }
     public void dragWillRevert(){
         accion = new Actions(driver);

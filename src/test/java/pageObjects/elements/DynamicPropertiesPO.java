@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Constantes;
 
 import java.time.Duration;
 
@@ -50,10 +51,10 @@ public class DynamicPropertiesPO extends DemoQASetup {
     }
     public void botonCambiaColor(){
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        String colorInicial = botonCambiaColor.getCssValue("background-color");
+        String colorInicial = botonCambiaColor.getCssValue(Constantes.COLOR_FONDO);
 
-        wait.until(ExpectedConditions.attributeToBeNotEmpty(botonCambiaColor, "background-color"));
-        String colorNuevo = botonCambiaColor.getCssValue("background-color");
+        wait.until(ExpectedConditions.attributeToBeNotEmpty(botonCambiaColor, Constantes.COLOR_FONDO));
+        String colorNuevo = botonCambiaColor.getCssValue(Constantes.COLOR_FONDO);
 
         if(!colorNuevo.equals(colorInicial)){
             System.out.println("El color ha cambiado correctamente");

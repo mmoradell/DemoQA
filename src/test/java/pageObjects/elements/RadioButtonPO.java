@@ -4,6 +4,7 @@ import base.DemoQASetup;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Constantes;
 
 public class RadioButtonPO extends DemoQASetup {
     public RadioButtonPO(){
@@ -39,12 +40,12 @@ public class RadioButtonPO extends DemoQASetup {
 
     }
     public boolean verificarTextoRadioButtonSi(){
-        return textoConfirmacionSeleccionRadioButton.getText().equalsIgnoreCase("You have selected ")
-                && textoConfirmacionRadioButton.getText().equalsIgnoreCase("Yes");
+        return textoConfirmacionSeleccionRadioButton.getText().equalsIgnoreCase(Constantes.SELECCIONADO)
+                && textoConfirmacionRadioButton.getText().equalsIgnoreCase(Constantes.SI);
     }
     public boolean verificarTextoRadioButtonImpressive(){
-        return textoConfirmacionSeleccionRadioButton.getText().equalsIgnoreCase("You have selected ")
-                && textoConfirmacionRadioButton.getText().equalsIgnoreCase("Impressive");
+        return textoConfirmacionSeleccionRadioButton.getText().equalsIgnoreCase(Constantes.SELECCIONADO)
+                && textoConfirmacionRadioButton.getText().equalsIgnoreCase(Constantes.IMPRESIONANTE);
     }
 
 }

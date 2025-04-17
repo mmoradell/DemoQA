@@ -4,6 +4,7 @@ import base.DemoQASetup;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Constantes;
 import java.time.Duration;
 
 public class WebTablesPO extends DemoQASetup {
@@ -34,12 +35,12 @@ public class WebTablesPO extends DemoQASetup {
         anadir.click();
     }
     public void rellenarDatosFormularioTabla() {
-        nombre.sendKeys("Marcos");
-        apellido.sendKeys("Moradell");
-        email.sendKeys("marcosmoradell@gmail.com");
-        edad.sendKeys("24");
-        salario.sendKeys("1000");
-        departamento.sendKeys("Informatica");
+        nombre.sendKeys(Constantes.NOMBRE);
+        apellido.sendKeys(Constantes.APELLIDO);
+        email.sendKeys(Constantes.EMAIL);
+        edad.sendKeys(Constantes.EDAD);
+        salario.sendKeys(Constantes.SALARIO);
+        departamento.sendKeys(Constantes.DEPARTAMENTO);
 
         confirmar.click();
 

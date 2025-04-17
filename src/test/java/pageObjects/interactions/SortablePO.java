@@ -19,8 +19,6 @@ public class SortablePO extends DemoQASetup {
     protected WebElement uno;
     @FindBy(xpath = "//*[@id=\"demo-tabpane-list\"]/div/div[5]")
     protected WebElement cinco;
-    @FindBy(xpath = "//*[@id=\"demo-tabpane-list\"]/div/div[6]")
-    protected WebElement seis;
     @FindBy(id = "demo-tab-grid")
     protected WebElement grid;
     @FindBy(xpath = "//*[@id=\"demo-tabpane-grid\"]/div/div/div[2]")

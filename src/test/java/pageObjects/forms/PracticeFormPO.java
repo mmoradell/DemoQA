@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Constantes;
 
 import java.time.Duration;
 
@@ -35,10 +36,6 @@ public class PracticeFormPO extends DemoQASetup {
     protected WebElement subirFoto;
     @FindBy(id = "currentAddress")
     protected WebElement direccion;
-    @FindBy(id = "state")
-    protected WebElement pais;
-    @FindBy(xpath = "//*[@id=\"stateCity-wrapper\"]/div[3]")
-    protected WebElement ciudad;
     @FindBy(id = "closeLargeModal")
     protected WebElement cerrar;
     @FindBy(id = "submit")
@@ -47,19 +44,19 @@ public class PracticeFormPO extends DemoQASetup {
         driver.get("https://demoqa.com/automation-practice-form");
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", confirmar);
+        js.executeScript(Constantes.SCROLL, confirmar);
     }
     public void rellenarFormulario() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-        nombre.sendKeys("Marcos");
-        apellido.sendKeys("Moradell");
-        email.sendKeys("marcosmoradell@gmail.com");
+        nombre.sendKeys(Constantes.NOMBRE);
+        apellido.sendKeys(Constantes.APELLIDO);
+        email.sendKeys(Constantes.EMAIL);
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", genero);  //Utilizo js porque el clic normal no lo reconoce
 
-        numeroTelefono.sendKeys("1234567890");
+        numeroTelefono.sendKeys(Constantes.TELEFONO);
 
 //      fechaNacimiento.clear();
 //      fechaNacimiento.sendKeys("18/11/1999");  //Esta bugeado el datePicker de esta pagina
@@ -75,13 +72,11 @@ public class PracticeFormPO extends DemoQASetup {
 //       }
         js.executeScript("arguments[0].click();", hobbies);
 
-        String ruta = "C:\\Users\\Marcos\\Downloads\\sampleFile.jpeg";
+        String ruta = Constantes.RUTA_SUBIR_FICHERO;
         subirFoto.sendKeys(ruta);
         Thread.sleep(Duration.ofSeconds(4));
 
-        direccion.sendKeys("Avenida Navarra");
-//      pais.sendKeys("Haryana");
-//      ciudad.sendKeys("Karnal");
+        direccion.sendKeys(Constantes.DIRECCION_ACTUAL);
 
         confirmar.click();
         Thread.sleep(Duration.ofSeconds(4));

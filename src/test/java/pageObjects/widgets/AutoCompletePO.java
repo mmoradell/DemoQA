@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Constantes;
 
 public class AutoCompletePO extends DemoQASetup {
     public AutoCompletePO(){
@@ -19,17 +20,17 @@ public class AutoCompletePO extends DemoQASetup {
     @FindBy(id = "autoCompleteSingleInput")
     protected WebElement color;
     public void rellenarMultiplesColores(){
-        multiplesColores.sendKeys("Blue");
+        multiplesColores.sendKeys(Constantes.AZUL);
         multiplesColores.sendKeys(Keys.ENTER);
 
-        multiplesColores.sendKeys("Red");
+        multiplesColores.sendKeys(Constantes.ROJO);
         multiplesColores.sendKeys(Keys.ENTER);
 
-        multiplesColores.sendKeys("Green");
+        multiplesColores.sendKeys(Constantes.VERDE);
         multiplesColores.sendKeys(Keys.ENTER);
     }
     public void rellenarUnColor(){
-        color.sendKeys("Blue");
+        color.sendKeys(Constantes.AZUL);
         color.sendKeys(Keys.ENTER);
     }
 }

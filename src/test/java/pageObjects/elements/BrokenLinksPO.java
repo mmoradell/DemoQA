@@ -6,6 +6,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Constantes;
+
 import java.net.HttpURLConnection;
 import java.net.URI;
 
@@ -40,8 +42,8 @@ public class BrokenLinksPO extends DemoQASetup {
     public void isImagenValida(String imagenValida) {
         try{
             HttpURLConnection conexion = (HttpURLConnection) new URI(imagenValida).toURL().openConnection();
-            conexion.setRequestMethod("GET");
-            conexion.setRequestProperty("User-Agent", "Mozilla/5.0");
+            conexion.setRequestMethod(Constantes.METODO_GET);
+            conexion.setRequestProperty(Constantes.USER_AGENT, Constantes.NAVEGADOR_MOZILLA);
             conexion.connect();
 
             int responseCode = conexion.getResponseCode();
@@ -66,7 +68,7 @@ public class BrokenLinksPO extends DemoQASetup {
 
         if(driver.findElement(By.xpath
                 ("//*[@id=\"content\"]/div/p")).getText().equalsIgnoreCase
-                ("This page returned a 500 status code.")){
+                (Constantes.CODIGO_500)){
             System.out.println("El link roto es correcto");
         }else{
             System.out.println("No se ha podido acceder correctamente al link roto");

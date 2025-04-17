@@ -4,6 +4,7 @@ import base.DemoQASetup;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Constantes;
 
 import java.util.Set;
 
@@ -19,8 +20,6 @@ public class BrowserWindowsPO extends DemoQASetup {
     protected WebElement nuevaPestana;
     @FindBy(id = "windowButton")
     protected WebElement nuevaVentana;
-    @FindBy(id = "messageWindowButton")
-    protected WebElement mensajeVentana;
     @FindBy(id = "sampleHeading")
     protected WebElement comprobacionNuevaPestana;
     public void clicarNuevaPestana(){
@@ -36,7 +35,7 @@ public class BrowserWindowsPO extends DemoQASetup {
         }
     }
     public boolean isPestanaNuevaOK(){
-        return comprobacionNuevaPestana.getText().equalsIgnoreCase("This is a sample page");
+        return comprobacionNuevaPestana.getText().equalsIgnoreCase(Constantes.PAGINA_EJEMPLO);
     }
     public void clicarNuevaVentana(){
         nuevaVentana.click();

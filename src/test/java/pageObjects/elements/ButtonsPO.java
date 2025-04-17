@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Constantes;
 
 import java.time.Duration;
 
@@ -35,7 +36,7 @@ public class ButtonsPO extends DemoQASetup {
         accion.perform();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        assert dobleClicOk.getText().equalsIgnoreCase("You have done a double click");
+        assert dobleClicOk.getText().equalsIgnoreCase(Constantes.DOBLE_CLICK);
     }
     public void clicDerecho(){
         accion = new Actions(driver);
@@ -43,12 +44,12 @@ public class ButtonsPO extends DemoQASetup {
         accion.perform();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        assert clicDerechoOk.getText().equalsIgnoreCase("You have done a right click");
+        assert clicDerechoOk.getText().equalsIgnoreCase(Constantes.CLICK_DERECHO);
     }
     public void clicame(){
         clicame.click();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        assert clicDinamico.getText().equalsIgnoreCase("You have done a dynamic click");
+        assert clicDinamico.getText().equalsIgnoreCase(Constantes.CLICK_DINAMICO);
     }
 }

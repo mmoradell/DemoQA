@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Set;
+import utils.Constantes;
 
 public class DemoQASetup {
     protected WebDriver driver;
@@ -24,17 +25,17 @@ public class DemoQASetup {
         driver.manage().window().maximize();
     }
     public void setupParaDescargas(){
-        String ruta = "C:\\Users\\Marcos\\Downloads";
+        String ruta = Constantes.RUTA_CAPTURAS;
 
         HashMap<String, Object> preferencias = new HashMap<>();
-        preferencias.put("profile.default_content_settings.popups", 0);
-        preferencias.put("download.default_directory", ruta);
-        preferencias.put("download.prompt_for_download", false);
-        preferencias.put("directory_upgrade", true);
-        preferencias.put("safebrowsing.enabled", true);
+        preferencias.put(Constantes.POPUPS, 0);
+        preferencias.put(Constantes.DIRECTORIO, ruta);
+        preferencias.put(Constantes.PROMPT_DESCARGA, false);
+        preferencias.put(Constantes.DIRECTORIO_UPGRADE, true);
+        preferencias.put(Constantes.SAFEBROWSE, true);
 
         ChromeOptions opciones = new ChromeOptions();
-        opciones.setExperimentalOption("prefs", preferencias);
+        opciones.setExperimentalOption(Constantes.PREFS, preferencias);
 
         WebDriver driver = new ChromeDriver(opciones);
 
@@ -51,8 +52,8 @@ public class DemoQASetup {
 
         File archivo = capturaPantalla.getScreenshotAs(OutputType.FILE);
 
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String rutaArchivo = "src/screenshots/" + nombreFichero + "_" + timeStamp + ".png";
+        String timeStamp = new SimpleDateFormat(Constantes.FORMATO_FECHA).format(new Date());
+        String rutaArchivo = Constantes.CAPTURA + nombreFichero + "_" + timeStamp + Constantes.PNG;
 
         try{
             FileHandler.copy(archivo, new File(rutaArchivo));

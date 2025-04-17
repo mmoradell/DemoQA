@@ -5,6 +5,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Constantes;
 
 import java.time.Duration;
 
@@ -32,7 +33,7 @@ public class AlertsPO extends DemoQASetup {
     public void clicarBotonAlerta(){
         botonAlerta.click();
         alerta = driver.switchTo().alert();
-        if(alerta.getText().equalsIgnoreCase("You clicked a button")){
+        if(alerta.getText().equalsIgnoreCase(Constantes.BOTON_CLICADO)){
             System.out.println("El boton se ha cerrado correctamente");
         }
         alerta.accept();
@@ -42,7 +43,7 @@ public class AlertsPO extends DemoQASetup {
         Thread.sleep(Duration.ofSeconds(6));
 
         alerta = driver.switchTo().alert();
-        if(alerta.getText().equalsIgnoreCase("This alert appeared after 5 seconds")){
+        if(alerta.getText().equalsIgnoreCase(Constantes.ALERTA_CINCO_SEGUNDOS)){
             System.out.println("El boton se ha cerrado correctamente tras 5 segundos de espera");
         }
         alerta.accept();
@@ -52,7 +53,7 @@ public class AlertsPO extends DemoQASetup {
 
         alerta = driver.switchTo().alert();
         alerta.accept();
-        if(textoConfirmacion.getText().equalsIgnoreCase("You selected Cancel")){
+        if(textoConfirmacion.getText().equalsIgnoreCase(Constantes.BOTON_CANCELAR)){
             System.out.println("El boton se ha cancelado correctamente");
         }
 
@@ -61,7 +62,7 @@ public class AlertsPO extends DemoQASetup {
         botonConfirmar.click();
         alerta = driver.switchTo().alert();
         alerta.dismiss();
-        if(textoConfirmacion.getText().equalsIgnoreCase("You selected Ok")){
+        if(textoConfirmacion.getText().equalsIgnoreCase(Constantes.BOTON_CONFIRMAR)){
             System.out.println("El boton se ha confirmado correctamente");
         }
     }
@@ -72,7 +73,7 @@ public class AlertsPO extends DemoQASetup {
         alerta = driver.switchTo().alert();
         alerta.sendKeys(textoPrompt);
         alerta.accept();
-        if(resultadoPrompt.getText().equalsIgnoreCase("You entered " + textoPrompt)){
+        if(resultadoPrompt.getText().equalsIgnoreCase(Constantes.TEXTO_INTRODUCIDO + textoPrompt)){
             System.out.println("El boton prompt ha funcionado correctamente");
         }
     }

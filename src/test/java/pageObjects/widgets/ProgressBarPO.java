@@ -19,8 +19,6 @@ public class ProgressBarPO extends DemoQASetup {
     }
     @FindBy(id = "startStopButton")
     protected WebElement botonProgressBar;
-    @FindBy(id = "progressBar")
-    protected WebElement progressBar;
     @FindBy(xpath = "//*[@id=\"progressBar\"]/div")
     protected WebElement progressBarCompleta;
     public void rellenarProgressBar(){

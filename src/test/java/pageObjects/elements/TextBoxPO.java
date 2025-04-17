@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Constantes;
 
 public class TextBoxPO extends DemoQASetup {
     public TextBoxPO(){
@@ -27,10 +28,10 @@ public class TextBoxPO extends DemoQASetup {
         driver.get("https://demoqa.com/text-box");
     }
     public void rellenarDatos(){
-        nombreCompleto.sendKeys("Marcos Moradell Alegre");
-        email.sendKeys("marcosmoradell@gmail.com");
-        direccionActual.sendKeys("Avenida de Navarra");
-        direccionPermanente.sendKeys("Avenida de Navarra");
+        nombreCompleto.sendKeys(Constantes.NOMBRE_COMPLETO);
+        email.sendKeys(Constantes.EMAIL);
+        direccionActual.sendKeys(Constantes.DIRECCION_ACTUAL);
+        direccionPermanente.sendKeys(Constantes.DIRECCION_PERMANENTE);
     }
     public void botonSubmit(){
         JavascriptExecutor js = (JavascriptExecutor) driver;

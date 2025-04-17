@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Constantes;
+
 import java.time.Duration;
 
 public class LinksPO extends DemoQASetup {
@@ -50,39 +52,39 @@ public class LinksPO extends DemoQASetup {
     public void abrirLinkDinamico(){
         linkDinamico.click();
     }
-    public void comprobarLinkCreated() throws InterruptedException {
+    public void comprobarLinkCreated(){
         created.click();
         wait.until(ExpectedConditions.elementToBeClickable(created));
-        assert respuesta.getText().equalsIgnoreCase("Link has responded with staus 201 and status text Created");
+        assert respuesta.getText().equalsIgnoreCase(Constantes.ESTADO_201);
     }
-    public void comprobarLinkNoContent() throws InterruptedException {
+    public void comprobarLinkNoContent(){
         noContent.click();
         wait.until(ExpectedConditions.elementToBeClickable(noContent));
-        assert respuesta.getText().equalsIgnoreCase("Link has responded with staus 204 and status text No Content");
+        assert respuesta.getText().equalsIgnoreCase(Constantes.ESTADO_204);
     }
     public void comprobarLinkMoved(){
         moved.click();
         wait.until(ExpectedConditions.elementToBeClickable(moved));
-        assert respuesta.getText().equalsIgnoreCase("Link has responded with staus 301 and status text Moved Permanently");
+        assert respuesta.getText().equalsIgnoreCase(Constantes.ESTADO_301);
     }
     public void comprobarLinkBadRequest(){
         badRequest.click();
         wait.until(ExpectedConditions.elementToBeClickable(badRequest));
-        assert respuesta.getText().equalsIgnoreCase("Link has responded with staus 400 and status text Bad Request");
+        assert respuesta.getText().equalsIgnoreCase(Constantes.ESTADO_400);
     }
     public void comprobarLinkUnauthorized(){
         unauthorized.click();
         wait.until(ExpectedConditions.elementToBeClickable(unauthorized));
-        assert respuesta.getText().equalsIgnoreCase("Link has responded with staus 401 and status text Unauthorized");
+        assert respuesta.getText().equalsIgnoreCase(Constantes.ESTADO_401);
     }
     public void comprobarLinkForbidden(){
         forbidden.click();
         wait.until(ExpectedConditions.elementToBeClickable(forbidden));
-        assert respuesta.getText().equalsIgnoreCase("Link has responded with staus 403 and status text Forbidden");
+        assert respuesta.getText().equalsIgnoreCase(Constantes.ESTADO_403);
     }
     public void comprobarLinkNotFound(){
         notFound.click();
         wait.until(ExpectedConditions.elementToBeClickable(notFound));
-        assert respuesta.getText().equalsIgnoreCase("Link has responded with staus 404 and status text Not Found");
+        assert respuesta.getText().equalsIgnoreCase(Constantes.ESTADO_404);
     }
 }
